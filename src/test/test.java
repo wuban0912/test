@@ -15,45 +15,45 @@ import com.artofsolving.jodconverter.openoffice.converter.OpenOfficeDocumentConv
 public class test {
 
 	public static void main(String[] args) throws Exception {
-		// ÊÇ·ñ¿ÉÔ¤ÀÀ±êÖ¾ 0ÆÕÍ¨ÎÄµµ£¬MP3£¬SWF£¬¿ÉÒÔÔ¤ÀÀ £¬ 1 ²»Ö§³ÖµÄÎÄ¼şÀàĞÍ£¬²»ÄÜÔ¤ÀÀ 2£¬MP4²¥·Å
+		// æ˜¯å¦å¯é¢„è§ˆæ ‡å¿— 0æ™®é€šæ–‡æ¡£ï¼ŒMP3ï¼ŒSWFï¼Œå¯ä»¥é¢„è§ˆ ï¼Œ 1 ä¸æ”¯æŒçš„æ–‡ä»¶ç±»å‹ï¼Œä¸èƒ½é¢„è§ˆ 2ï¼ŒMP4æ’­æ”¾
 		String previewFlag = "0";
 		String pathString = "C:\\Users\\Administrator\\Downloads\\";
-		String newFileName = "²É¹º¶©µ¥EXT002201810014.xlsx";
+		String newFileName = "é‡‡è´­è®¢å•EXT002201810014.xlsx";
 		String startupPath = "C:\\Program Files (x86)\\";
 		Runtime rt = Runtime.getRuntime();
 		rt.exec(startupPath+"OpenOffice 4\\program\\soffice.exe -headless -nologo -norestore -accept=socket,host=localhost,port=8100;urp;StarOffice.ServiceManager");
-		/************************************** ÒÔÏÂÎªÎÄ¼şÔ¤ÀÀ *****************************************************/
+		/************************************** ä»¥ä¸‹ä¸ºæ–‡ä»¶é¢„è§ˆ *****************************************************/
 		if (previewFlag.equals("0")) {
-			// ·şÎñÆ÷ĞÅÏ¢
+			// æœåŠ¡å™¨ä¿¡æ¯
 			Properties props = System.getProperties();
-			// ²»Í¬ÏµÍ³·Ö¸ô·û
+			// ä¸åŒç³»ç»Ÿåˆ†éš”ç¬¦
 			String separator = props.getProperty("file.separator");
-			// ·şÎñÆ÷´æ´¢µÄÎÄ¼şÃû³Æ 201212171709212889.doc
+			// æœåŠ¡å™¨å­˜å‚¨çš„æ–‡ä»¶åç§° 201212171709212889.doc
 			String sysFileName = pathString + newFileName;
-			// linux ÏÂ
-			// ÊÇÒ»¸öÕıĞ±¸Ü/home/apache-tomcat-6.0.33/webapps/jd/WebRoot/upload/knowledge/201212181318342606.ppt
+			// linux ä¸‹
+			// æ˜¯ä¸€ä¸ªæ­£æ–œæ /home/apache-tomcat-6.0.33/webapps/jd/WebRoot/upload/knowledge/201212181318342606.ppt
 			String fullPath = pathString + newFileName;
-			// ÓësysFileName±£³ÖÒ»ÖÂ,Èç¹ûÒÑ¾­´æÔÚ£¬²»ÔÙÃ¿´ÎÉú³É
+			// ä¸sysFileNameä¿æŒä¸€è‡´,å¦‚æœå·²ç»å­˜åœ¨ï¼Œä¸å†æ¯æ¬¡ç”Ÿæˆ
 			String sysFileName_temp = sysFileName.substring(0, sysFileName.lastIndexOf("."));
 
-			File sourceFile; // ×ª»»Ô´ÎÄ¼ş
-			File pdfFile; // PDFÃ½½éÎÄ¼ş
-			// ·ÇPDF¸ñÊ½ÎÄ¼ş´¦Àí·½Ê½
+			File sourceFile; // è½¬æ¢æºæ–‡ä»¶
+			File pdfFile; // PDFåª’ä»‹æ–‡ä»¶
+			// éPDFæ ¼å¼æ–‡ä»¶å¤„ç†æ–¹å¼
 			sourceFile = new File(fullPath);
 			pdfFile = new File(separator + sysFileName_temp + ".pdf");
 			rt = Runtime.getRuntime();
 			if (!pdfFile.exists()) {
-				// »ñÈ¡Á¬½Ó¶ÔÏó
+				// è·å–è¿æ¥å¯¹è±¡
 				OpenOfficeConnection connection = new SocketOpenOfficeConnection(8100);
-				// È¡µÃÁ¬½Ó
+				// å–å¾—è¿æ¥
 				connection.connect();
-				// ´´½¨ÎÄ¼ş¸ñÊ½×ª»»¶ÔÏó
+				// åˆ›å»ºæ–‡ä»¶æ ¼å¼è½¬æ¢å¯¹è±¡
 				DocumentConverter converter = new OpenOfficeDocumentConverter(connection);
-				// ÊµÏÖÎÄ¼ş¸ñÊ½×ª»»
+				// å®ç°æ–‡ä»¶æ ¼å¼è½¬æ¢
 				converter.convert(sourceFile, pdfFile);
-				// Éú³ÉÒÑ×ª»»µÄPDFÎÄ¼ş
+				// ç”Ÿæˆå·²è½¬æ¢çš„PDFæ–‡ä»¶
 				pdfFile.createNewFile();
-				// ÊÍ·ÅÁ¬½Ó
+				// é‡Šæ”¾è¿æ¥
 				connection.disconnect();
 			}
 		}
@@ -61,7 +61,7 @@ public class test {
 	}
 
 	/**
-	 * ÇåÀí»º³åÇø
+	 * æ¸…ç†ç¼“å†²åŒº
 	 * 
 	 * @param isi
 	 * @param ise
@@ -70,7 +70,7 @@ public class test {
 		try {
 			System.out.println("clearCache===========" + isi.toString() + "============" + ise.toString());
 			final InputStream is1 = isi;
-			// ÆôÓÃµ¥¶ÀÏß³ÌÇå¿ÕInputStream»º³åÇø
+			// å¯ç”¨å•ç‹¬çº¿ç¨‹æ¸…ç©ºInputStreamç¼“å†²åŒº
 			new Thread(new Runnable() {
 				public void run() {
 					System.out.println("before BufferedReader=========================");
@@ -83,10 +83,10 @@ public class test {
 					}
 				}
 			}).start();
-			// ¶ÁÈëErrorStream»º³å
+			// è¯»å…¥ErrorStreamç¼“å†²
 			System.out.println("333333333333333333333333");
 			BufferedReader br = new BufferedReader(new InputStreamReader(ise));
-			// ±£´æ»º³åÊä³ö½á¹û
+			// ä¿å­˜ç¼“å†²è¾“å‡ºç»“æœ
 			StringBuilder buf = new StringBuilder();
 			String line = null;
 			try {
@@ -95,7 +95,7 @@ public class test {
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
-			// Ñ­»·µÈ´ı½ø³Ì½áÊø
+			// å¾ªç¯ç­‰å¾…è¿›ç¨‹ç»“æŸ
 			while (line != null)
 				buf.append(line);
 			is1.close();
@@ -108,12 +108,12 @@ public class test {
 	}
 
 	/**
-	 * ÅĞ¶ÏËù×ª»»ÎÄ¼şÀàĞÍÊÇ·ñºÏ·¨
+	 * åˆ¤æ–­æ‰€è½¬æ¢æ–‡ä»¶ç±»å‹æ˜¯å¦åˆæ³•
 	 * 
 	 * @param getFileType
-	 *            //ÎÄ¼ş¸ñÊ½
+	 *            //æ–‡ä»¶æ ¼å¼
 	 * @param fileLegalFlag
-	 *            //ÊÇ·ñºÏ·¨±êÖ¾ false£º·Ç·¨ true£ººÏ·¨
+	 *            //æ˜¯å¦åˆæ³•æ ‡å¿— falseï¼šéæ³• trueï¼šåˆæ³•
 	 */
 
 	public static boolean isLegal(String getFileType) {
