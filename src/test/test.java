@@ -15,7 +15,9 @@ import com.artofsolving.jodconverter.openoffice.converter.OpenOfficeDocumentConv
 public class test {
 
 	public static void main(String[] args) throws Exception {
-		 
+		// 是否可预览标志 0普通文档，MP3，SWF，可以预览 ， 1 不支持的文件类型，不能预览 2，MP4播放
+		String previewFlag = "0";
+		
 	}
 
 	/**
