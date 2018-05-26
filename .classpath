@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/jdk1.7.0_80"/>
+	<classpathentry kind="lib" path="src/test/jodconverter-2.2.2.jar"/>
+	<classpathentry kind="lib" path="src/test/commons-cli-1.2.jar"/>
+	<classpathentry kind="lib" path="src/test/commons-io-1.4.jar"/>
+	<classpathentry kind="lib" path="src/test/jodconverter-cli-2.2.2.jar"/>
+	<classpathentry kind="lib" path="src/test/juh-3.0.1.jar"/>
+	<classpathentry kind="lib" path="src/test/jurt-3.0.1.jar"/>
+	<classpathentry kind="lib" path="src/test/PDFRenderer-0.9.0.jar"/>
+	<classpathentry kind="lib" path="src/test/ridl-3.0.1.jar"/>
+	<classpathentry kind="lib" path="src/test/slf4j-api-1.5.6.jar"/>
+	<classpathentry kind="lib" path="src/test/slf4j-jdk14-1.5.6.jar"/>
+	<classpathentry kind="lib" path="src/test/unoil-3.0.1.jar"/>
+	<classpathentry kind="lib" path="src/test/xstream-1.3.1.jar"/>
+	<classpathentry kind="lib" path="src/test/jacob.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>
